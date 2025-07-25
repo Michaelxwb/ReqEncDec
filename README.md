@@ -80,6 +80,19 @@ if __name__ == "__main__":
 - `AES`（默认）
 - 可以通过扩展中间件添加更多算法。
 
+## Performance Optimization
+
+- **缓存加密实例**：中间件缓存加密实例，避免重复初始化，提高重复加密/解密操作的性能。
+
+## Extensibility
+
+- **自定义加密算法**：用户可以通过调用 `register_cipher` 方法注册自定义加密算法。示例：
+```python
+plugin = EncryptionPlugin(app)
+plugin.register_cipher("MY_CUSTOM_ALGO", MyCustomCipher)
+```
+自定义加密算法类必须实现 `encrypt` 和 `decrypt` 方法。
+
 ## License
 
 MIT

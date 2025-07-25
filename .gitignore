@@ -1,0 +1,41 @@
+# IDE and Editor files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Python cache and build files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Logs and databases
+*.log
+*.sqlite
+
+# Environment files
+.env
+.venv/
+env/
+venv/
+
+# Test and coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# macOS files
+.DS_Store
+
+# Windows files
+Thumbs.db
