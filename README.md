@@ -80,6 +80,19 @@ if __name__ == "__main__":
 - `AES`（默认）
 - 可以通过扩展中间件添加更多算法。
 
+## Performance Optimization
+
+- **Caching Encryption Instances**: The middleware caches encryption instances to avoid repeated initialization, improving performance for repeated encryption/decryption operations.
+
+## Extensibility
+
+- **Custom Encryption Algorithms**: Users can register custom encryption algorithms by calling `register_cipher` method. Example:
+  ```python
+  plugin = EncryptionPlugin(app)
+  plugin.register_cipher("MY_CUSTOM_ALGO", MyCustomCipher)
+  ```
+  The custom cipher class must implement `encrypt` and `decrypt` methods.
+
 ## License
 
 MIT

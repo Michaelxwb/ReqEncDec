@@ -1,11 +1,12 @@
 from flask import Flask, request
 
 from req_enc_dec import EncryptionPlugin
+from shift_encrypt import ShiftCipher
 
 app = Flask(__name__)
 
 # Configure the middleware
-app.config["ENCRYPTION_ALGO"] = "AES"
+app.config["ENCRYPTION_ALGO"] = "MY_CUSTOM_ALGO"
 app.config["ENCRYPTION_SALT"] = b"your_salt_value"
 app.config["ENCRYPTION_KEY"] = b'secret_key'
 app.config["ENCRYPTION_URL_CONFIGS"] = {
@@ -15,7 +16,8 @@ app.config["ENCRYPTION_URL_CONFIGS"] = {
     }
 }
 
-EncryptionPlugin(app=app)
+plugin = EncryptionPlugin(app)
+plugin.register_cipher("MY_CUSTOM_ALGO", ShiftCipher)
 
 
 @app.route("/api/user", methods=["POST"])
